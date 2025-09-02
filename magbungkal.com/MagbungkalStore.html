@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store | play.Magbungkal.com
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Animate on Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    /* small local overrides */
+    .store-card { background: #7c4751; color: white; border-radius: 1rem; padding: 1.25rem; box-shadow: 0 10px 20px rgba(0,0,0,0.18); transition: transform .28s ease, box-shadow .28s ease; }
+    .store-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 22px 40px rgba(0,0,0,.28); }
+    .store-img { width:100%; height:160px; object-fit:cover; border-radius:.6rem; margin-bottom:.75rem; }
+    .zoom-anim { animation: zoomInOut 8s infinite alternate ease-in-out; }
+    @keyframes zoomInOut { from{ transform:scale(1);} to{ transform:scale(1.08);} }
+
+    /* modal */
+    #infoModal .modal-panel { max-height: 80vh; overflow:auto; }
+
+    /* buy popup */
+    #buyPopup { transform: translateY(150%); transition: transform .45s ease; }
+    #buyPopup.show { transform: translateY(5%); }
+
+    /* ensure modal text preserves newlines */
+    #infoText { white-space: pre-line; }
+  </style>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body class="bg-gray-100 font-sans">
+  
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full bg-[#7c4751] text-white shadow-lg z-50 transition-transform duration-500">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center py-3">
+      <a href="#" class="flex items-center space-x-3">
+        <img src="Magbungkal_new_logo_PNG_Transparent.png" alt="Magbungkal Logo" class="w-12 h-auto">
+        <span class="font-bold text-lg">play.Magbungkal.com</span>
+      </a>
+
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#coins" class="hover:text-gray-200">Coins</a>
+        <a href="#ranks" class="hover:text-gray-200">Ranks</a>
+        <a href="#gcash" class="hover:text-gray-200">GCash</a>
+      </div>
+
+      <input type="text" id="searchInput" placeholder="Search coins or ranks..." class="ml-4 px-3 py-1 rounded-lg text-black hidden md:block" />
+    </div>
+  </nav>
+
+  <!-- Header with Logo -->
+  <header class="bg-[#7c4751] py-20 shadow-lg mt-16">
+    <div class="flex flex-col items-center justify-center text-center">
+      <img src="Magbungkal_new_logo_PNG_Transparent.png" alt="Magbungkal Logo" class="w-32 h-auto mb-2 drop-shadow-lg">
+      <h1 class="text-white text-3xl font-bold">Welcome to our Store</h1>
+      <p class="text-gray-200">Support us by purchasing ranks & coins</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="p-8 space-y-12 max-w-7xl mx-auto">
+
+    <!-- Coins Section -->
+    <section id="Coin">
+      <h2 class="text-2xl font-bold text-[#7c4751] mb-6">Coin Packages</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1 -->
+        <div data-aos="fade-up" class="store-card" data-title="5,810.6 Coins">
+          <img src="images/Coin.png" alt="5,810.6 Coins" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">5,810.6 Coins — $5.00</h3>
+          <p class="store-desc">A small starter pack to get you going.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('5,810.6 Coins — $5.00')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('5,810.6 Coins — $5.00', coinPerks['5,810.6 Coins — $5.00'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div data-aos="fade-up" class="store-card" data-title="11,621.4 Coins">
+          <img src="images/Coin2.png" alt="11,621.4 Coins" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">11,621.4 Coins — $10.00</h3>
+          <p class="store-desc">Double the value, double the fun.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('11,621.4 Coins — $10.00')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('11,621.4 Coins — $10.00', coinPerks['11,621.4 Coins — $10.00'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div data-aos="fade-up" class="store-card" data-title="17,432.2 Coins">
+          <img src="images/Coin3.png" alt="17,432.2 Coins" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">17,432.2 Coins — $15.00</h3>
+          <p class="store-desc">Great value for growing players.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('17,432.2 Coins — $15.00')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('17,432.2 Coins — $15.00', coinPerks['17,432.2 Coins — $15.00'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div data-aos="fade-up" class="store-card" data-title="23,242.8 Coins">
+          <img src="images/Coin4.png" alt="23,242.8 Coins" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">23,242.8 Coins — $20.00</h3>
+          <p class="store-desc">Stack more resources and rewards.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('23,242.8 Coins — $20.00')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('23,242.8 Coins — $20.00', coinPerks['23,242.8 Coins — $20.00'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div data-aos="fade-up" class="store-card" data-title="58,107 Coins">
+          <img src="images/Coin5.png" alt="58,107 Coins" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">58,107 Coins — $50.00</h3>
+          <p class="store-desc">Best for serious players and packs.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('58,107 Coins — $50.00')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('58,107 Coins — $50.00', coinPerks['58,107 Coins — $50.00'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div data-aos="fade-up" class="store-card" data-title="116,214 Coins">
+          <img src="images/Coin6.png" alt="116,214 Coins" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">116,214 Coins — $100.00</h3>
+          <p class="store-desc">Max value coin pack for dedicated players.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('116,214 Coins — $100.00')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('116,214 Coins — $100.00', coinPerks['116,214 Coins — $100.00'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Ranks Section -->
+    <section id="ranks">
+      <h2 class="text-2xl font-bold text-[#7c4751] mb-6">Premium Ranks</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- VIP -->
+        <div data-aos="fade-up" class="store-card" data-title="VIP">
+          <img src="images/VIP_1.PNG" alt="VIP" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">VIP (30 Days) — $0.87 USD</h3>
+          <p class="store-desc">Starter rank with quality perks & commands.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('VIP — $0.87')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('VIP', rankPerks['VIP'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- MVP -->
+        <div data-aos="fade-up" class="store-card" data-title="MVP">
+          <img src="images/MVP_1.PNG" alt="MVP" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">MVP (30 Days) — $2.64 USD</h3>
+          <p class="store-desc">Extended perks + more utility commands.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('MVP — $2.64')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('MVP', rankPerks['MVP'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- MVP+ -->
+        <div data-aos="fade-up" class="store-card" data-title="MVP+">
+          <img src="images/MVP+_1.PNG" alt="MVP+" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">MVP+ (30 Days) — $4.41 USD</h3>
+          <p class="store-desc">Powerful perks, expanded limits & features.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('MVP+ — $4.41')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('MVP+', rankPerks['MVP+'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- MVP++ -->
+        <div data-aos="fade-up" class="store-card" data-title="MVP++">
+          <img src="images/MVP++_1.PNG" alt="MVP++" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">MVP++ (30 Days) — $6.19 USD</h3>
+          <p class="store-desc">Top-tier perks with many exclusive commands.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('MVP++ — $6.19')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('MVP++', rankPerks['MVP++'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- TITAN -->
+        <div data-aos="fade-up" class="store-card" data-title="TITAN">
+          <img src="images/king.png" alt="TITAN" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">TITAN (30 days) — $8.84 USD</h3>
+          <p class="store-desc">Elite rank with powerful bonuses & keep-inv.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('TITAN — $8.84')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('TITAN', rankPerks['TITAN'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+        <!-- Custom Rank -->
+        <div data-aos="fade-up" class="store-card" data-title="Custom Rank">
+          <img src="images/god.png" alt="Custom Rank" class="w-24 h-24 store-img zoom-anim">
+          <h3 class="store-title">Custom Rank (Permanent) — $60.00 USD</h3>
+          <p class="store-desc">Fully customized rank — contact staff to design.</p>
+          <div class="store-actions flex justify-between mt-4">
+            <button onclick="openBuyPopup('Custom Rank — $60.00')" class="btn-buy px-4 py-2 rounded font-semibold">Buy Now</button>
+            <button onclick="openInfoModal('Custom Rank', rankPerks['Custom Rank'])" class="btn-info px-4 py-2 rounded border-2">Info</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GCash Section (no collapse) -->
+    <section id="gcash">
+      <h2 class="text-2xl font-bold text-[#7c4751] mb-6">GCash Payment</h2>
+      <div class="bg-white rounded-2xl shadow-lg p-6 space-y-4" data-aos="fade-up">
+        <img src="https://logos-world.net/wp-content/uploads/2023/05/GCash-Logo.png" alt="GCash Logo" class="w-40 mb-4">
+        <p class="text-gray-700">
+          You can pay for your orders using <b>GCASH</b> manually if you don’t have a PayPal account.
+          Please contact a staff member to confirm your order and provide the necessary details on Discord.
+        </p>
+        <div class="bg-[#7c4751] text-white p-4 rounded-xl">
+          <p><b>Name:</b> ARIEL V.</p>
+          <p><b>Mobile #:</b> 09157317051</p>
+          <p><b>User ID:</b> ***********WDY5PQ</p>
+        </div>
+        <div class="bg-gray-200 p-6 rounded-xl text-center">
+          <p class="text-gray-700 font-semibold">[ QR CODE PLACEHOLDER ]</p>
+          <p class="text-sm text-gray-500">Insert your QR code image here</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Info Modal -->
+  <div id="infoModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl p-6 w-11/12 md:w-2/3 lg:w-1/2 modal-panel transform scale-95 transition-all duration-300" id="infoModalContent">
+      <h2 class="text-2xl font-bold mb-4 text-[#7c4751]" id="modalTitle">Package Info</h2>
+      <div id="infoText" class="text-gray-700 mb-4"></div>
+      <button onclick="closeInfoModal()" class="bg-[#7c4751] text-white px-6 py-2 rounded-xl hover:bg-[#693c46] transition">Close</button>
+    </div>
+  </div>
+
+  <!-- Buy Confirmation Popup -->
+  <div id="buyPopup" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-[#7c4751] text-white px-6 py-3 rounded-lg text-center z-50">
+    <p id="buyMessage"></p>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    AOS.init({ duration: 700, once: true, easing: 'ease-in-out' });
+
+    const rankPerks = {
+      "VIP": `VIP ➥ +250 Coins
+/fly (12 days)
+
+Exclusive Commands:
+➥ /hat
+➥ /realname
+➥ /suicide
+➥ /disposal
+➥ /feed
+➥ /workbench
+
+Bonus Perks:
+➥ VIP Prefix
+➥ Can place spawners
+➥ 2 sethomes
+➥ Eglow colors: Gray & White
+➥ 2 slots on Auction House
+➥ 2 slots on Chest Shop
+➥ 2 PWarp limits
+➥ 2 Player Vaults
+➥ 1500 Claim Blocks
+➥ VIP Exclusive kit (cooldown: 30 days)`,
+
+      "MVP": `MVP (30 Days) ➥ +500 Coins
+/fly (24 days)
+Includes all VIP Perks
+
+Exclusive Commands:
+➥ /clear
+➥ /near
+➥ /tptoggle
+➥ /playerhead [playerName]
+
+Bonus Perks:
+➥ MVP Prefix
+➥ Eglow Colors: Blue, Dark Blue, Green, and Yellow
+➥ 4 sethomes
+➥ 4 slots on Auction House
+➥ 4 slots on Chest Shop
+➥ 4 Player Vaults
+➥ 4 PWarp limits
+➥ 2500 Claim Blocks
+➥ Blue Chat Color
+➥ MVP Exclusive kit (cooldown: 30 days)`,
+
+      "MVP+": `MVP+ ➥ +1500 Coins
+/fly (30 days)
+ALL MVP Perks
+
+Exclusive Commands:
+➥ /enderchest
+➥ /top
+➥ /heads or /headdb
+
+Bonus Perks:
+➥ MVP+ Prefix
+➥ Expands Backpack size 4 rows
+➥ Able to join Alchemist, Fisherman job
+➥ Eglow Colors: Aqua, Pink, Purple, and Red
+➥ 6 sethomes
+➥ 6 slots on Auction House
+➥ 6 slots on Chest Shop
+➥ 6 Player Vaults
+➥ 5000 Claim Blocks
+➥ 6 PWarp limits
+➥ Green Chat Color
+➥ Keep XP on death
+➥ Access on Colored Signs
+➥ Access on Player Particles
+➥ MVP+ Exclusive kit (cooldown: 30 days)`,
+
+      "MVP++": `MVP++ ➥ +3000 Coins
+All MVP+ Perks
+
+Exclusive Commands:
+➥ /ptime
+➥ /down
+➥ /top
+➥ /compass
+➥ /height
+➥ /fly
+➥ /back
+➥ /compass
+➥ /heal
+➥ /shakeitoff
+
+Bonus Perks:
+➥ MVP++ Prefix
+➥ All Eglow Colors
+➥ 8 sethomes
+➥ 8 slots on Auction House
+➥ 8 slots on Chest Shop
+➥ 8 Player Vaults
+➥ 8 PWarp limits
+➥ 7500 Claim Blocks
+➥ Orange Chat Color
+➥ MVP++ Exclusive kit (cooldown: 30 days)`,
+
+      "TITAN": `TITAN ➥ +2500 Coins
+ALL MVP++ Perks
+
+Exclusive Commands:
+➥ /lightning
+➥ /nick (RGB Supported)
+➥ /thunder
+
+Bonus Perks:
+➥ TITAN Prefix
+➥ All Eglow Colors
+➥ 10 sethomes
+➥ 10 slots on Auction House
+➥ 10 slots on Chest Shop
+➥ 10 Player Vaults
+➥ 10 PWarp limits
+➥ 15000 Claim Blocks
+➥ Purple Chat Color
+➥ Keep INV on death
+➥ TITAN Exclusive kit (cooldown: 30 days)`,
+
+      "Custom Rank": `Custom Rank ➥ +5000 Coins
+ALL Titan Perks
+
+Exclusive Commands:
+➥ /burn [playerName]
+➥ /checkexp [playerName]
+➥ /stats [playerName]
+➥ /silentchest
+➥ /cheque [playerName] [amount]
+
+Bonus Perks:
+➥ Custom Tag Prefix
+➥ Custom Tag Prefix Design
+➥ Chat Color depends on chosen tag
+➥ Priority Support
+➥ Early access to updates
+➥ Custom rank role separated from the member list
+
+Note: If you want to purchase this product, please create a ticket on our Discord to discuss name, design, and color of your rank.`
+    };
+
+    const coinPerks = {
+      "5,810.6 Coins — $5.00": `5,810.6 Coins — $5.00
+Great starter pack to spend on in-game items and perks.`,
+      "11,621.4 Coins — $10.00": `11,621.4 Coins — $10.00
+Double value pack for better progression.`,
+      "17,432.2 Coins — $15.00": `17,432.2 Coins — $15.00
+Best for mid-tier players wanting more resources.`,
+      "23,242.8 Coins — $20.00": `23,242.8 Coins — $20.00
+Great value with extra coins for longer play sessions.`,
+      "58,107 Coins — $50.00": `58,107 Coins — $50.00
+High-value pack for dedicated players and shops.`,
+      "116,214 Coins — $100.00": `116,214 Coins — $100.00
+Maximum value pack — best bang for your buck.`
+    };
+
+    function openInfoModal(item, perks) {
+      document.getElementById("modalTitle").innerText = item + " — Details";
+      document.getElementById("infoText").innerText = perks || "No details available.";
+      document.getElementById("infoModal").classList.remove("hidden");
+      // focus trap simple
+      document.getElementById("infoModalContent")?.focus();
+    }
+
+    function closeInfoModal() {
+      document.getElementById("infoModal").classList.add("hidden");
+    }
+
+    function openBuyPopup(item) {
+      const popup = document.getElementById("buyPopup");
+      document.getElementById("buyMessage").innerText = `✅ You requested to buy ${item}. Please open a ticket on Discord for staff assistance.`;
+      popup.classList.add('show');
+      setTimeout(() => { popup.classList.remove('show'); }, 3000);
+    }
+
+    // navbar hide and scroll ng feelings mo 
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        navbar.style.transform = "translateY(-100%)";
+      } else {
+        navbar.style.transform = "translateY(0)";
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // search bar na pogi
+    document.getElementById("searchInput").addEventListener("input", function(e) {
+      const search = e.target.value.toLowerCase();
+      document.querySelectorAll(".store-card").forEach(card => {
+        const text = (card.innerText || "").toLowerCase();
+        card.style.display = text.includes(search) ? "block" : "none";
+      });
+    });
+
+    // close modal on background click
+    document.getElementById('infoModal').addEventListener('click', function(e){
+      if(e.target === this) closeInfoModal();
+    });
+  </script>
+
+  
+  <style>
+    .store-title { font-size: 1.125rem; font-weight: 700; margin-bottom: .35rem; }
+    .store-desc { font-size: .9rem; margin-bottom: .5rem; }
+    .btn-buy { background: white; color: #7c4751; padding: .5rem .9rem; border-radius: .6rem; font-weight: 600; }
+    .btn-info { border: 2px solid white; padding: .45rem .9rem; border-radius: .6rem; font-weight: 600; color: white; background: transparent; }
+    .btn-info:hover { background: white; color: #7c4751; }
+  </style>
+
+</body>
+</html>
