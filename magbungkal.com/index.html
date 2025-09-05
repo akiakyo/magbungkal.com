@@ -4,229 +4,83 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>play.Magbungkal.com</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-      color: #333;
-    }
-    
-    /* Navbar */
-    nav {
-      background-color: #7c4751;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav .logo img {
-      height: 50px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      list-style: none;
-    }
-    .nav-links li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
-    .nav-store a {
-      background: white;
-      color: #7c4751;
-      padding: 0.4rem 0.8rem;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .menu-toggle {
-      display: none;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
 
-    /* Hero */
-    .hero {
-      height: 100vh;
-      background: url('1.png') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-      position: relative;
-      text-align: center;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-    }
-    .hero h1, .hero p {
-      z-index: 1;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      animation: fadeInScale 2s ease forwards, glow 2s infinite alternate;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      opacity: 0;
-      animation: fadeIn 3s ease forwards;
-      animation-delay: 1s;
-    }
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #fff, 0 0 20px #7c4751; }
-      to { text-shadow: 0 0 20px #fff, 0 0 30px #7c4751; }
-    }
-
-    /* discord to */
-
-    .discord-btn img {
-      width: 70px; /* adjust size */
-      height: auto;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .discord-btn img:hover {
-      transform: scale(1.50); /* smooth zoom effect */
-      filter: drop-shadow(0 0 6px #5865F2); /* Discord blur glow */
-    }
-
-    /* Sections */
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .card-container {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 2rem;
-      width: 250px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.05) rotate(-1deg);
-      box-shadow: 0 8px 20px rgba(124,71,81,0.6);
-    }
-    .card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 8px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .card img:hover {
-      transform: scale(1.1);
-      opacity: 0.85;
-    }
-
-    /* FAQ */
-    details {
-      margin: 1rem auto;
-      max-width: 600px;
-      text-align: left;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 1rem;
-      background: white;
-      transition: all 0.4s ease, transform 0.4s ease;
-      cursor: pointer;
-    }
-    details[open] {
-      background: #f9f0f2;
-      border-color: #7c4751;
-      transform: scale(1.02);
-      box-shadow: 0 6px 15px rgba(124,71,81,0.3);
-    }
-    details summary {
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Vote Section */
-    .vote-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    .vote-links a {
-      background: #7c4751;
-      color: white;
-      padding: 0.8rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    }
-    .vote-links a:hover {
-      background: #5e343e;
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 6px 15px rgba(124,71,81,0.4);
-    }
-
-    /* Footer */
-    footer {
-      background: #7c4751;
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: #7c4751;
-        flex-direction: column;
-        padding: 1rem;
-        width: 200px;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
-    }
-  </style>
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+<!-- Particle Background -->
+<div class="particle-background">
+  <div class="particle" style="left: 31.8068%; animation-delay: 1.47602s; animation-duration: 18.359s;"></div>
+  <div class="particle" style="left: 14.285%; animation-delay: 2.76298s; animation-duration: 15.9657s;"></div>
+  <div class="particle" style="left: 88.4809%; animation-delay: 14.5192s; animation-duration: 15.8429s;"></div>
+  <div class="particle" style="left: 31.6764%; animation-delay: 2.93788s; animation-duration: 23.9102s;"></div>
+  <div class="particle" style="left: 12.8362%; animation-delay: 0.927665s; animation-duration: 16.4591s;"></div>
+  <div class="particle" style="left: 96.8903%; animation-delay: 3.62562s; animation-duration: 23.903s;"></div>
+  <div class="particle" style="left: 78.6317%; animation-delay: 10.845s; animation-duration: 24.1702s;"></div>
+  <div class="particle" style="left: 8.20475%; animation-delay: 13.8317s; animation-duration: 21.3589s;"></div>
+  <div class="particle" style="left: 36.0564%; animation-delay: 6.49521s; animation-duration: 19.8393s;"></div>
+  <div class="particle" style="left: 94.9844%; animation-delay: 1.15422s; animation-duration: 19.3147s;"></div>
+  <div class="particle" style="left: 59.9317%; animation-delay: 14.3648s; animation-duration: 17.4711s;"></div>
+  <div class="particle" style="left: 98.7341%; animation-delay: 3.54246s; animation-duration: 24.0482s;"></div>
+  <div class="particle" style="left: 47.7228%; animation-delay: 4.05912s; animation-duration: 17.3246s;"></div>
+  <div class="particle" style="left: 62.4147%; animation-delay: 2.97758s; animation-duration: 21.9683s;"></div>
+  <div class="particle" style="left: 89.3473%; animation-delay: 12.2044s; animation-duration: 19.3527s;"></div>
+  <div class="particle" style="left: 90.5106%; animation-delay: 9.48152s; animation-duration: 20.7119s;"></div>
+  <div class="particle" style="left: 44.2677%; animation-delay: 3.75273s; animation-duration: 19.4343s;"></div>
+  <div class="particle" style="left: 37.0143%; animation-delay: 0.685829s; animation-duration: 19.7732s;"></div>
+  <div class="particle" style="left: 60.6554%; animation-delay: 10.7762s; animation-duration: 19.4444s;"></div>
+  <div class="particle" style="left: 88.2965%; animation-delay: 0.368672s; animation-duration: 20.6354s;"></div>
+  <div class="particle" style="left: 21.2873%; animation-delay: 0.890468s; animation-duration: 20.6692s;"></div>
+  <div class="particle" style="left: 91.4786%; animation-delay: 4.32356s; animation-duration: 24.2309s;"></div>
+  <div class="particle" style="left: 61.1957%; animation-delay: 10.2077s; animation-duration: 20.5573s;"></div>
+  <div class="particle" style="left: 78.2326%; animation-delay: 2.06993s; animation-duration: 19.4666s;"></div>
+  <div class="particle" style="left: 14.7431%; animation-delay: 2.69704s; animation-duration: 15.727s;"></div>
+  <div class="particle" style="left: 7.50904%; animation-delay: 9.67346s; animation-duration: 20.0303s;"></div>
+  <div class="particle" style="left: 39.4751%; animation-delay: 8.4917s; animation-duration: 19.8189s;"></div>
+  <div class="particle" style="left: 83.8466%; animation-delay: 7.9528s; animation-duration: 24.7116s;"></div>
+  <div class="particle" style="left: 34.7363%; animation-delay: 12.8631s; animation-duration: 15.0486s;"></div>
+  <div class="particle" style="left: 81.3635%; animation-delay: 10.9262s; animation-duration: 18.5566s;"></div>
+  <div class="particle" style="left: 38.3072%; animation-delay: 13.14s; animation-duration: 22.8798s;"></div>
+  <div class="particle" style="left: 42.4972%; animation-delay: 12.4855s; animation-duration: 18.9111s;"></div>
+  <div class="particle" style="left: 45.9284%; animation-delay: 13.4867s; animation-duration: 19.3032s;"></div>
+  <div class="particle" style="left: 88.9139%; animation-delay: 3.25989s; animation-duration: 24.3975s;"></div>
+  <div class="particle" style="left: 49.4996%; animation-delay: 5.98692s; animation-duration: 23.5126s;"></div>
+  <div class="particle" style="left: 66.9058%; animation-delay: 3.99986s; animation-duration: 22.289s;"></div>
+  <div class="particle" style="left: 45.567%; animation-delay: 8.67924s; animation-duration: 22.088s;"></div>
+  <div class="particle" style="left: 84.381%; animation-delay: 10.325s; animation-duration: 23.6531s;"></div>
+  <div class="particle" style="left: 31.601%; animation-delay: 6.72221s; animation-duration: 20.4172s;"></div>
+  <div class="particle" style="left: 13.0481%; animation-delay: 13.0557s; animation-duration: 15.4448s;"></div>
+  <div class="particle" style="left: 71.6393%; animation-delay: 9.68517s; animation-duration: 23.9803s;"></div>
+  <div class="particle" style="left: 37.5682%; animation-delay: 8.23735s; animation-duration: 17.7254s;"></div>
+  <div class="particle" style="left: 81.2655%; animation-delay: 13.0986s; animation-duration: 20.6567s;"></div>
+  <div class="particle" style="left: 22.8024%; animation-delay: 14.709s; animation-duration: 21.1312s;"></div>
+  <div class="particle" style="left: 73.8697%; animation-delay: 1.9967s; animation-duration: 21.8401s;"></div>
+  <div class="particle" style="left: 87.9163%; animation-delay: 8.80595s; animation-duration: 20.955s;"></div>
+  <div class="particle" style="left: 61.7876%; animation-delay: 13.2631s; animation-duration: 22.5381s;"></div>
+  <div class="particle" style="left: 26.7992%; animation-delay: 4.1406s; animation-duration: 16.7279s;"></div>
+  <div class="particle" style="left: 36.9963%; animation-delay: 8.55714s; animation-duration: 19.7469s;"></div>
+  <div class="particle" style="left: 82.6178%; animation-delay: 2.00878s; animation-duration: 21.964s;"></div>
+</div>
+
+
+  <!-- Loader -->
+  <div id="loader">
+    <img src="Magbungkal_new_logo_PNG_Transparent.png" alt="Loading..." />
+
+    <!-- Snowflakes -->
+    <div class="snowflake" style="top:10%; left:20%;">❄</div>
+    <div class="snowflake" style="top:30%; left:70%;">❅</div>
+    <div class="snowflake" style="top:50%; left:40%;">❆</div>
+    <div class="snowflake" style="top:70%; left:80%;">❄</div>
+    <div class="snowflake" style="top:20%; left:50%;">❅</div>
+    <div class="snowflake" style="top:60%; left:15%;">❆</div>
+    <div class="snowflake" style="top:80%; left:60%;">❄</div>
+  </div>
 
   <!-- Navbar -->
   <nav>
@@ -239,24 +93,114 @@
       <li><a href="#vote">Vote</a></li>
     </ul>
     <div class="nav-store">
-      <a href="MagbungkalStore.html">Store</a>
+      <a href="store.html">Store</a>
     </div>
     <div class="menu-toggle" id="menuToggle">&#9776;</div>
   </nav>
 
-  <!-- Hero -->
+
+<!-- HERO -->
   <section class="hero">
+<div class="hero-particles">
+  <div class="particle" style="left: 31.8068%; animation-delay: 1.47602s; animation-duration: 18.359s;"></div>
+  <div class="particle" style="left: 14.285%; animation-delay: 2.76298s; animation-duration: 15.9657s;"></div>
+  <div class="particle" style="left: 88.4809%; animation-delay: 14.5192s; animation-duration: 15.8429s;"></div>
+  <div class="particle" style="left: 31.6764%; animation-delay: 2.93788s; animation-duration: 23.9102s;"></div>
+  <div class="particle" style="left: 12.8362%; animation-delay: 0.927665s; animation-duration: 16.4591s;"></div>
+  <div class="particle" style="left: 96.8903%; animation-delay: 3.62562s; animation-duration: 23.903s;"></div>
+  <div class="particle" style="left: 78.6317%; animation-delay: 10.845s; animation-duration: 24.1702s;"></div>
+  <div class="particle" style="left: 8.20475%; animation-delay: 13.8317s; animation-duration: 21.3589s;"></div>
+  <div class="particle" style="left: 36.0564%; animation-delay: 6.49521s; animation-duration: 19.8393s;"></div>
+  <div class="particle" style="left: 94.9844%; animation-delay: 1.15422s; animation-duration: 19.3147s;"></div>
+  <div class="particle" style="left: 59.9317%; animation-delay: 14.3648s; animation-duration: 17.4711s;"></div>
+  <div class="particle" style="left: 98.7341%; animation-delay: 3.54246s; animation-duration: 24.0482s;"></div>
+  <div class="particle" style="left: 47.7228%; animation-delay: 4.05912s; animation-duration: 17.3246s;"></div>
+  <div class="particle" style="left: 62.4147%; animation-delay: 2.97758s; animation-duration: 21.9683s;"></div>
+  <div class="particle" style="left: 89.3473%; animation-delay: 12.2044s; animation-duration: 19.3527s;"></div>
+  <div class="particle" style="left: 90.5106%; animation-delay: 9.48152s; animation-duration: 20.7119s;"></div>
+  <div class="particle" style="left: 44.2677%; animation-delay: 3.75273s; animation-duration: 19.4343s;"></div>
+  <div class="particle" style="left: 37.0143%; animation-delay: 0.685829s; animation-duration: 19.7732s;"></div>
+  <div class="particle" style="left: 60.6554%; animation-delay: 10.7762s; animation-duration: 19.4444s;"></div>
+  <div class="particle" style="left: 88.2965%; animation-delay: 0.368672s; animation-duration: 20.6354s;"></div>
+  <div class="particle" style="left: 21.2873%; animation-delay: 0.890468s; animation-duration: 20.6692s;"></div>
+  <div class="particle" style="left: 91.4786%; animation-delay: 4.32356s; animation-duration: 24.2309s;"></div>
+  <div class="particle" style="left: 61.1957%; animation-delay: 10.2077s; animation-duration: 20.5573s;"></div>
+  <div class="particle" style="left: 78.2326%; animation-delay: 2.06993s; animation-duration: 19.4666s;"></div>
+  <div class="particle" style="left: 14.7431%; animation-delay: 2.69704s; animation-duration: 15.727s;"></div>
+  <div class="particle" style="left: 7.50904%; animation-delay: 9.67346s; animation-duration: 20.0303s;"></div>
+  <div class="particle" style="left: 39.4751%; animation-delay: 8.4917s; animation-duration: 19.8189s;"></div>
+  <div class="particle" style="left: 83.8466%; animation-delay: 7.9528s; animation-duration: 24.7116s;"></div>
+  <div class="particle" style="left: 34.7363%; animation-delay: 12.8631s; animation-duration: 15.0486s;"></div>
+  <div class="particle" style="left: 81.3635%; animation-delay: 10.9262s; animation-duration: 18.5566s;"></div>
+  <div class="particle" style="left: 38.3072%; animation-delay: 13.14s; animation-duration: 22.8798s;"></div>
+  <div class="particle" style="left: 42.4972%; animation-delay: 12.4855s; animation-duration: 18.9111s;"></div>
+  <div class="particle" style="left: 45.9284%; animation-delay: 13.4867s; animation-duration: 19.3032s;"></div>
+  <div class="particle" style="left: 88.9139%; animation-delay: 3.25989s; animation-duration: 24.3975s;"></div>
+  <div class="particle" style="left: 49.4996%; animation-delay: 5.98692s; animation-duration: 23.5126s;"></div>
+  <div class="particle" style="left: 66.9058%; animation-delay: 3.99986s; animation-duration: 22.289s;"></div>
+  <div class="particle" style="left: 45.567%; animation-delay: 8.67924s; animation-duration: 22.088s;"></div>
+  <div class="particle" style="left: 84.381%; animation-delay: 10.325s; animation-duration: 23.6531s;"></div>
+  <div class="particle" style="left: 31.601%; animation-delay: 6.72221s; animation-duration: 20.4172s;"></div>
+  <div class="particle" style="left: 13.0481%; animation-delay: 13.0557s; animation-duration: 15.4448s;"></div>
+  <div class="particle" style="left: 71.6393%; animation-delay: 9.68517s; animation-duration: 23.9803s;"></div>
+  <div class="particle" style="left: 37.5682%; animation-delay: 8.23735s; animation-duration: 17.7254s;"></div>
+  <div class="particle" style="left: 81.2655%; animation-delay: 13.0986s; animation-duration: 20.6567s;"></div>
+  <div class="particle" style="left: 22.8024%; animation-delay: 14.709s; animation-duration: 21.1312s;"></div>
+  <div class="particle" style="left: 73.8697%; animation-delay: 1.9967s; animation-duration: 21.8401s;"></div>
+  <div class="particle" style="left: 87.9163%; animation-delay: 8.80595s; animation-duration: 20.955s;"></div>
+  <div class="particle" style="left: 61.7876%; animation-delay: 13.2631s; animation-duration: 22.5381s;"></div>
+  <div class="particle" style="left: 26.7992%; animation-delay: 4.1406s; animation-duration: 16.7279s;"></div>
+  <div class="particle" style="left: 36.9963%; animation-delay: 8.55714s; animation-duration: 19.7469s;"></div>
+  <div class="particle" style="left: 82.6178%; animation-delay: 2.00878s; animation-duration: 21.964s;"></div>
+</div>
     <h1>play.Magbungkal.com</h1>
+
+    <div class="status-container">
+      <!-- Player Online -->
+      <div class="status-box">
+        <p>Online Players</p>
+        <p id="mc-players">...</p>
+      </div>
+
+      <!-- Member Online -->
+      <div class="status-box">
+        <p>Discord Online Members</p>
+        <p id="discord-online">...</p>
+      </div>
+    </div>
+
     <p>A Minecraft server based in the Philippines • Est. 2023</p>
   </section>
 
-  <!-- Discord -->
-  <section id="Discord">
-    <h2>Join our Discord</h2>
+
+<!-- Discord -->
+<section id="Discord" class="discord-section">
+  <h2>Join our Discord</h2>
+  
+  <div class="discord-container">
+    <!-- Left Side -->
+    <div class="discord-left">
       <a href="https://discord.magbungkal.com" target="_blank" class="discord-btn">
-        <img src="https://www.pngkey.com/png/full/17-179750_discord-logo-png.png" alt="Join our Discord" />
+        <span>discord.magbungkal.com</span>
       </a>
-    <p><strong>discord.magbungkal.com</strong></p>
+      <p class="discord-text">Stay updated, join giveaways, and chat with the community!</p>
+    </div>
+
+    <!-- Right Side -->
+    <div class="discord-widget">
+      <iframe 
+        src="https://discord.com/widget?id=1126475444837949500&theme=dark" 
+        width="350" 
+        height="500" 
+        allowtransparency="true" 
+        frameborder="0" 
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
   <!-- Staff -->
   <section id="staff">
     <h2>Staff Team</h2>
@@ -363,10 +307,8 @@
     </details>
     <details>
       <summary>I can't join to the server.</summary>
-      <p>Having internet connections problem with our server?</p>
-      <p>We are aware of our players having issue with their ISP especially if you are using PLDT as your Internet Service Provider (ISP). 
-        We found a way to fix this problem by providing you a link for VPN.</p>
-      <p>Copy & paste to download VPN: https://one.one.one.one/ </p>
+      <p>We are aware of issues with some ISPs, especially PLDT. Try using this VPN:</p>
+      <p><a href="https://one.one.one.one/">Download VPN</a></p>
     </details>
     <details>
       <summary>Are you accepting GCash payment method?</summary>
@@ -374,8 +316,7 @@
     </details>
     <details>
       <summary>My resource pack didn't work.</summary>
-      <p>Use 1.21.4</p>
-      <p>Are you having problems with the latest version of Minecraft? (e.g Not loading resource pack). Please use 1.21.4</p>
+      <p>Use Minecraft <strong>1.21.4</strong>.</p>
     </details>
   </section>
   
@@ -396,19 +337,12 @@
     </div>
   </section>
 
-
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 play.Magbungkal.com. All rights reserved.</p>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
