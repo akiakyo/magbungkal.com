@@ -1,0 +1,193 @@
+{
+  "serverIp": "play.magbungkal.com",
+  "discordUrl": "https://discord.gg/shyBMGTV6C",
+  "paymentMethods": [
+    {
+      "id": "gcash",
+      "label": "GCash",
+      "logo": "https://1000logos.net/wp-content/uploads/2023/05/GCash-Logo.png",
+      "accountName": "YOUR GCASH NAME",
+      "accountValue": "09XX XXX XXXX",
+      "accountLabel": "Mobile Number",
+      "qr": "gcash-qr.png"
+    },
+    {
+      "id": "paypal",
+      "label": "PayPal",
+      "logo": "https://pngimg.com/uploads/paypal/paypal_PNG7.png",
+      "link": "https://paypal.me/YOUR_PAYPAL_USERNAME"
+    },
+    {
+      "id": "maribank",
+      "label": "MariBank",
+      "logo": "https://images.seeklogo.com/logo-png/66/1/maribank-logo-png_seeklogo-660295.png",
+      "accountName": "YOUR MARIBANK NAME",
+      "accountValue": "YOUR ACCOUNT NUMBER",
+      "accountLabel": "Account Number"
+    },
+    {
+      "id": "maya",
+      "label": "Maya",
+      "logo": "https://assets-eu-01.kc-usercontent.com/44bc0180-e274-014f-6b99-e5fc8ab7f759/bc691f85-09de-48ff-9746-e954cf86378d/Maya_logo.svg.png",
+      "accountName": "YOUR MAYA NAME",
+      "accountValue": "09XX XXX XXXX",
+      "accountLabel": "Mobile Number"
+    }
+  ],
+  "keyPackages": [
+    {
+      "quantity": 3,
+      "price": 100
+    },
+    {
+      "quantity": 7,
+      "price": 200
+    },
+    {
+      "quantity": 10,
+      "price": 350
+    }
+  ],
+  "modes": {
+    "skyblock": {
+      "label": "Skyblock",
+      "banner": "skyblock.png",
+      "ranks": [
+        {
+          "name": "Knight Rank",
+          "shortName": "Knight",
+          "price": 200,
+          "period": "/month",
+          "image": "knight.png",
+          "basics": "Homes: 2 | Auction Slots: 2 | Player Vaults: 2 | PWarps: 2 | Jobs: 2",
+          "sectionTitle": "Commands",
+          "features": [
+            "/dispose",
+            "/feed",
+            "/hat",
+            "/realname",
+            "/craft"
+          ]
+        },
+        {
+          "name": "Viscount Rank",
+          "shortName": "Viscount",
+          "price": 500,
+          "period": "/month",
+          "image": "viscount.png",
+          "basics": "Homes: 4 | Auction Slots: 4 | Player Vaults: 4 | PWarps: 4 | Jobs: 6",
+          "sectionTitle": "Commands",
+          "features": [
+            "/back",
+            "/clear",
+            "/compass",
+            "/ptime"
+          ]
+        },
+        {
+          "name": "Duke Rank",
+          "shortName": "Duke",
+          "price": 700,
+          "period": "/month",
+          "image": "duke.png",
+          "basics": "Homes: 10 | Auction Slots: 10 | Player Vaults: 10 | PWarps: 10 | Jobs: 10",
+          "sectionTitle": "Perks",
+          "features": [
+            "/nickname (RGB+ Supported)",
+            "/fly",
+            "/heal",
+            "/smite"
+          ]
+        }
+      ],
+      "keys": [
+        {
+          "name": "Demon Edge Key",
+          "image": "demonedge.png"
+        },
+        {
+          "name": "Sakura Key",
+          "image": "sakura.png"
+        },
+        {
+          "name": "Radiance Key",
+          "image": "radiance.png"
+        },
+        {
+          "name": "Dracula Key",
+          "image": "dracula.png"
+        }
+      ]
+    },
+    "survival": {
+      "label": "Survival",
+      "banner": "survival.png",
+      "ranks": [
+        {
+          "name": "Patron Rank",
+          "shortName": "Patron",
+          "price": 200,
+          "period": "/month",
+          "image": "patron.png",
+          "basics": "Homes: 2 | Auction Slots: 2 | Player Vaults: 2 | PWarps: 2 | Jobs: 2",
+          "sectionTitle": "Commands",
+          "features": [
+            "/dispose",
+            "/feed",
+            "/hat",
+            "/realname",
+            "/craft"
+          ]
+        },
+        {
+          "name": "Sovereign Rank",
+          "shortName": "Sovereign",
+          "price": 500,
+          "period": "/month",
+          "image": "sovereign.png",
+          "basics": "Homes: 4 | Auction Slots: 4 | Player Vaults: 4 | PWarps: 4 | Jobs: 6",
+          "sectionTitle": "Commands",
+          "features": [
+            "/back",
+            "/clear",
+            "/compass",
+            "/ptime"
+          ]
+        },
+        {
+          "name": "Luminary Rank",
+          "shortName": "Luminary",
+          "price": 700,
+          "period": "/month",
+          "image": "luminary.png",
+          "basics": "Homes: 10 | Auction Slots: 10 | Player Vaults: 10 | PWarps: 10 | Jobs: 10",
+          "sectionTitle": "Perks",
+          "features": [
+            "/nickname (RGB+ Supported)",
+            "/fly",
+            "/heal",
+            "/smite"
+          ]
+        }
+      ],
+      "keys": [
+        {
+          "name": "Demon Edge Key",
+          "image": "demonedge.png"
+        },
+        {
+          "name": "Sakura Key",
+          "image": "sakura.png"
+        },
+        {
+          "name": "Radiance Key",
+          "image": "radiance.png"
+        },
+        {
+          "name": "Dracula Key",
+          "image": "dracula.png"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,504 @@
+/*==================================================
+MAGBUNGKAL MC
+animations.css
+==================================================*/
+
+/* Loader */
+
+@keyframes loading{
+
+    from{
+
+        width:0;
+
+    }
+
+    to{
+
+        width:100%;
+
+    }
+
+}
+
+/* Floating Logo */
+
+@keyframes floatLogo{
+
+    0%{
+
+        transform:
+        translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+/* Pulse */
+
+@keyframes pulseLogo{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Clouds */
+
+@keyframes floatCloud{
+
+    from{
+
+        transform:
+        translateX(-500px);
+
+    }
+
+    to{
+
+        transform:
+        translateX(calc(100vw + 600px));
+
+    }
+
+}
+
+/* Fade */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+/* Glow */
+
+@keyframes glow{
+
+    0%{
+
+        box-shadow:
+        0 0 10px rgba(63,169,255,.3);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 35px rgba(63,169,255,.7);
+
+    }
+
+    100%{
+
+        box-shadow:
+        0 0 10px rgba(63,169,255,.3);
+
+    }
+
+}
+
+/* Floating Cards */
+
+@keyframes floating{
+
+    0%{
+
+        transform:
+        translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+/* Hidden */
+
+.hidden{
+
+    opacity:0;
+
+    transform:
+    translateY(50px);
+
+}
+
+/* Reveal */
+
+.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+    transition:
+
+        .8s ease;
+
+}
+
+/* Loader Hide */
+
+#loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+/* Scroll Top */
+
+#scrollTop{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:95px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark));
+
+    color:white;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    transform:
+    translateY(40px);
+
+    transition:.35s;
+
+    z-index:999;
+
+}
+
+#scrollTop.visible{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+/* Ripple */
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ripple{
+
+    position:absolute;
+
+    width:15px;
+
+    height:15px;
+
+    border-radius:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:
+
+    rgba(255,255,255,.6);
+
+    animation:ripple .6s linear;
+
+}
+
+@keyframes ripple{
+
+    from{
+
+        width:0;
+
+        height:0;
+
+        opacity:.8;
+
+    }
+
+    to{
+
+        width:350px;
+
+        height:350px;
+
+        opacity:0;
+
+    }
+
+}
+
+/* Copy */
+
+.copied{
+
+    animation:
+    glow 1s ease;
+
+}
+
+/* Floating Cards */
+
+.glass-card{
+
+    animation:
+    floating 5s ease-in-out infinite;
+
+}
+
+/* Hero Logo */
+
+.hero-logo{
+
+    animation:
+
+    floatLogo 4s ease-in-out infinite;
+
+}
+
+.pixel{
+
+    position:fixed;
+
+    bottom:-20px;
+
+    width:6px;
+
+    height:6px;
+
+    background:#66c2ff;
+
+    box-shadow:
+
+        0 0 12px #66c2ff;
+
+    pointer-events:none;
+
+    z-index:-5;
+
+    animation:
+
+        pixelFloat linear forwards;
+
+}
+
+@keyframes pixelFloat{
+
+    from{
+
+        transform:
+
+            translateY(0)
+            rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        transform:
+
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+#lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:99999;
+
+}
+
+#lightbox.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.lightbox-image{
+
+    max-width:90%;
+
+    max-height:85vh;
+
+    border-radius:18px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next{
+
+    position:absolute;
+
+    background:rgba(255,255,255,.12);
+
+    border:none;
+
+    color:#fff;
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover{
+
+    transform:scale(1.1);
+
+}
+
+.lightbox-close{
+
+    top:30px;
+
+    right:30px;
+
+}
+
+.lightbox-prev{
+
+    left:30px;
+
+}
+
+.lightbox-next{
+
+    right:30px;
+
+}
+
+.lightbox-counter{
+
+    position:absolute;
+
+    bottom:35px;
+
+    color:white;
+
+    font-size:15px;
+
+}

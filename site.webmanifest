@@ -1,0 +1,22 @@
+{
+  "name": "Magbungkal MC",
+  "short_name": "Magbungkal MC",
+  "description": "A modern Philippine Minecraft Survival & SkyBlock server with custom gameplay, economy, events, crates, pets, and an active community.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffbf6c",
+  "theme_color": "#ffbf6c",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

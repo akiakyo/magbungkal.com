@@ -1,0 +1,54 @@
+/*==================================================
+MAGBUNGKAL MC
+variables.css
+==================================================*/
+
+:root {
+    --primary: #ffbf6c;
+    --primary-dark: #e89f3f;
+    --secondary: #ff9f43;
+    --accent: #ffd89a;
+
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    --bg: #0f172a;
+    --bg2: #111827;
+    --bg3: #1b263b;
+
+    --text: #ffffff;
+    --text-light: #d1d5db;
+    --text-muted: #9ca3af;
+
+    --glass: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+
+    --radius-sm: 10px;
+    --radius: 20px;
+    --radius-lg: 30px;
+
+    --shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+
+    --transition: 0.35s ease;
+}
+
+/* Light Theme */
+
+body.light-theme{
+
+    --bg:#f6f8fb;
+    --bg2:#ffffff;
+    --bg3:#eef2f7;
+
+    --text:#111827;
+    --text-light:#374151;
+    --text-muted:#6b7280;
+
+    --glass:
+    rgba(255,255,255,.75);
+
+    --glass-border:
+    rgba(0,0,0,.08);
+
+}

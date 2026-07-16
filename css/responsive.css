@@ -1,0 +1,447 @@
+/* ==========================================================
+   MAGBUNGKAL MC
+   responsive.css
+========================================================== */
+
+/* ===============================
+   LARGE LAPTOPS
+================================*/
+
+@media (max-width: 1400px){
+
+    section{
+        padding:90px 6%;
+    }
+
+    .hero h1{
+        font-size:3.7rem;
+    }
+
+}
+
+/* ===============================
+   LAPTOP
+================================*/
+
+@media (max-width: 1200px){
+
+    #navbar{
+
+        width:95%;
+
+        padding:16px 25px;
+
+    }
+
+    #navLinks{
+
+        gap:22px;
+
+    }
+
+    .hero h1{
+
+        font-size:3.2rem;
+
+    }
+
+    .analytics-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+/* ===============================
+   TABLET
+================================*/
+
+@media (max-width:992px){
+
+    section{
+
+        padding:80px 6%;
+
+    }
+
+    /* Navbar */
+
+    #menuBtn{
+
+        display:block;
+
+    }
+
+    #navLinks{
+
+        position:absolute;
+
+        top:95px;
+
+        left:0;
+
+        right:0;
+
+        width:100%;
+
+        background:#101826;
+
+        border-radius:20px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:25px;
+
+        padding:35px;
+
+        opacity:0;
+
+        pointer-events:none;
+
+        transform:translateY(-15px);
+
+        transition:.35s;
+
+    }
+
+    #navLinks.active{
+
+        opacity:1;
+
+        pointer-events:auto;
+
+        transform:translateY(0);
+
+    }
+
+    /* Hero */
+
+    .hero{
+
+        min-height:85vh;
+
+    }
+
+    .hero h1{
+
+        font-size:3rem;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .top-bar{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .glass-card{
+
+        width:100%;
+
+        max-width:700px;
+
+    }
+
+    .feature-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .staff-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .vote-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+/* ===============================
+   LARGE PHONE
+================================*/
+
+@media (max-width:768px){
+
+    .hero{
+
+        padding-top:120px;
+
+    }
+
+    .hero-logo{
+
+        width:140px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.5rem;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:1rem;
+
+    }
+
+    .section-title h2{
+
+        font-size:2rem;
+
+    }
+
+    .feature-grid,
+    .staff-grid,
+    .analytics-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .vote-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .glass-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .card-content{
+
+        text-align:center;
+
+    }
+
+    #copyIP{
+
+        margin:0;
+
+        width:100%;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+}
+
+/* ===============================
+   MOBILE
+================================*/
+
+@media (max-width:576px){
+
+    section{
+
+        padding:70px 20px;
+
+    }
+
+    #navbar{
+
+        width:95%;
+
+        border-radius:25px;
+
+        padding:14px 18px;
+
+    }
+
+    .nav-logo img{
+
+        width:55px;
+
+    }
+
+    .hero{
+
+        min-height:100vh;
+
+    }
+
+    .hero-logo{
+
+        width:120px;
+
+    }
+
+    .hero h1{
+
+        font-size:2rem;
+
+        line-height:1.2;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:.95rem;
+
+    }
+
+    .hero-buttons{
+
+        width:100%;
+
+    }
+
+    .glow-btn,
+    .discord-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .feature-card,
+    .staff-card,
+    .analytics-card{
+
+        padding:25px;
+
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .vote-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .vote-grid a{
+
+        width:100%;
+
+    }
+
+    .faq summary{
+
+        font-size:1rem;
+
+    }
+
+    .footer-bottom{
+
+        font-size:.85rem;
+
+    }
+
+}
+
+/* ===============================
+   EXTRA SMALL DEVICES
+================================*/
+
+@media (max-width:380px){
+
+    .hero h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .section-title h2{
+
+        font-size:1.6rem;
+
+    }
+
+    .hero-logo{
+
+        width:100px;
+
+    }
+
+    .card-icon{
+
+        width:55px;
+
+        height:55px;
+
+    }
+
+    .card-icon i{
+
+        font-size:24px;
+
+    }
+
+}
+
+/* ===============================
+   LANDSCAPE PHONES
+================================*/
+
+@media (max-height:500px){
+
+    .hero{
+
+        min-height:650px;
+
+    }
+
+}
